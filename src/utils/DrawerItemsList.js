@@ -1,7 +1,6 @@
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import WebOutlinedIcon from "@mui/icons-material/WebOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
@@ -18,20 +17,25 @@ export const pagesItems = [
     icon: <DashboardIcon />,
     title: "Dashboard",
     items: [
-      { title: "Default", to: "/default" },
-      { title: "Analytics", to: "/analytics" },
-      { title: "Saas", to: "/saas" },
+      { title: "Default", to: "/dashboard/default" },
+      { title: "Analytics", to: "/dashboard/analytics" },
+      { title: "Saas", to: "/dashboard/saas" },
     ],
   },
   {
     icon: <WebOutlinedIcon />,
     title: "Pages",
     items: [
-      { title: "Profile", to: "/profile" },
-      { title: "Settings", to: "/settings" },
-      { title: "Pricing", to: "/pricing" },
-      { title: "Chat", to: "/chat" },
-      { title: "Blank Page", to: "/blankpage" },
+      { title: "Profile", to: "/pages/profile" },
+      { title: "Settings", to: "/pages/settings" },
+      {
+        title: "Auth",
+        items: [
+          { title: "Sign In", to: "/pages/auth/signin" },
+          { title: "Sign Up", to: "/pages/auth/signup" },
+          { title: "Reset Password", to: "/pages/auth/rst-password" },
+        ],
+      },
     ],
   },
   {
@@ -48,8 +52,8 @@ export const pagesItems = [
     icon: <ShoppingCartOutlinedIcon />,
     title: "Invoices",
     items: [
-      { title: "List", to: "/list" },
-      { title: "Details", to: "/details" },
+      { title: "List", to: "/invoices/list" },
+      { title: "Details", to: "/invoices/details" },
     ],
   },
   {
@@ -62,17 +66,6 @@ export const pagesItems = [
     title: "Calendar",
     items: [],
   },
-  {
-    icon: <GroupOutlinedIcon />,
-    title: "Auth",
-    items: [
-      { title: "Sign In", to: "/signin" },
-      { title: "Sign Up", to: "/signup" },
-      { title: "Reset Password", to: "/resetpassword" },
-      { title: "404 Page", to: "/404page" },
-      { title: "500 Page", to: "/500page" },
-    ],
-  },
 ];
 
 export const elementsItems = [
@@ -80,20 +73,20 @@ export const elementsItems = [
     icon: <GridViewOutlinedIcon />,
     title: "Components",
     items: [
-      { title: "Alerts", to: "/alerts" },
-      { title: "Accordian", to: "/accordian" },
-      { title: "Avatars", to: "/avatars" },
-      { title: "Badges", to: "/badges" },
-      { title: "Buttons", to: "/buttons" },
-      { title: "Cards", to: "/cards" },
-      { title: "Chips", to: "/chips" },
-      { title: "Dialogs", to: "/dialogs" },
-      { title: "Lists", to: "/lists" },
-      { title: "Menus", to: "/menus" },
-      { title: "Pagination", to: "/pagination" },
-      { title: "Progress", to: "/progress" },
-      { title: "Snackbars", to: "/snackbars" },
-      { title: "Tooltips", to: "/tooltips" },
+      { title: "Alerts", to: "/components/alerts" },
+      { title: "Accordian", to: "/components/accordian" },
+      { title: "Avatars", to: "/components/avatars" },
+      { title: "Badges", to: "/components/badges" },
+      { title: "Buttons", to: "/components/buttons" },
+      { title: "Cards", to: "/components/cards" },
+      { title: "Chips", to: "/components/chips" },
+      { title: "Dialogs", to: "/components/dialogs" },
+      { title: "Lists", to: "/components/lists" },
+      { title: "Menus", to: "/components/menus" },
+      { title: "Pagination", to: "/components/pagination" },
+      { title: "Progress", to: "/components/progress" },
+      { title: "Snackbars", to: "/components/snackbars" },
+      { title: "Tooltips", to: "/components/tooltips" },
     ],
   },
   {
@@ -105,37 +98,37 @@ export const elementsItems = [
     icon: <ContentPasteOutlinedIcon />,
     title: "Forms",
     items: [
-      { title: "Pickers", to: "/pickers" },
-      { title: "Selection Controls", to: "/selectionControls" },
-      { title: "Selects", to: "/selects" },
-      { title: "Text Fields", to: "/textFields" },
-      { title: "Editors", to: "/editors" },
-      { title: "Formik", to: "/formik" },
+      { title: "Pickers", to: "/forms/pickers" },
+      { title: "Selection Controls", to: "/forms/selectionControls" },
+      { title: "Selects", to: "/forms/selects" },
+      { title: "Text Fields", to: "/forms/textFields" },
+      { title: "Editors", to: "/forms/editors" },
+      { title: "Formik", to: "/forms/formik" },
     ],
   },
   {
     icon: <FormatListBulletedOutlinedIcon />,
     title: "Tables",
     items: [
-      { title: "Simple Tables", to: "/simpleTables" },
-      { title: "Advanced Tables", to: "/advancedTables" },
-      { title: "Data Grid", to: "/dataGrid" },
+      { title: "Simple Tables", to: "/tables/simpleTables" },
+      { title: "Advanced Tables", to: "/tables/advancedTables" },
+      { title: "Data Grid", to: "/tables/dataGrid" },
     ],
   },
   {
     icon: <FavoriteBorderOutlinedIcon />,
     title: "Icons",
     items: [
-      { title: "Material Icons", to: "/materialIcons" },
-      { title: "Feather Icons", to: "/featherIcons" },
+      { title: "Material Icons", to: "/icons/materialIcons" },
+      { title: "Feather Icons", to: "/icons/featherIcons" },
     ],
   },
   {
     icon: <MapOutlinedIcon />,
     title: "Maps",
     items: [
-      { title: "Google Maps", to: "/googleMaps" },
-      { title: "Vector Maps", to: "/vectorMaps" },
+      { title: "Google Maps", to: "/maps/googleMaps" },
+      { title: "Vector Maps", to: "/maps/vectorMaps" },
     ],
   },
 ];
