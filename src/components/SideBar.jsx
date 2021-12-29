@@ -61,7 +61,7 @@ const SideBar = (props) => {
           {openElement ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={openElement} timeout="auto" unmountOnExit>
-          <List component="div">
+          <List component="div" sx={{ pl: 2 }}>
             {item.items.map((child, key) => {
               return <RecursiveDrawerItems key={key} item={child} />;
             })}
@@ -115,7 +115,7 @@ const SideBar = (props) => {
       {/* Drawer */}
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { md: 0 } }}
+        sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
         aria-label="mailbox folders"
       >
         <Drawer
