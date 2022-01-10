@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Link, Typography } from "@mui/material";
 import { rows, columns } from "../utils/DataGridItems";
-import PageHeader from "../components/PageHeader";
-import DividerHorizontal from "../components/DividerHorizontal";
+import PageHeader from "../components/pages/PageHeader";
+import DividerHorizontal from "../components/pages/DividerHorizontal";
 
 const Datagrid = () => {
   const [row, setRow] = useState(5);
