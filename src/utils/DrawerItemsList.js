@@ -39,6 +39,12 @@ export const pagesItems = [
     ],
   },
   {
+    icon: <ContentPasteOutlinedIcon />,
+    title: "Form",
+    to: "/forms",
+    items: [],
+  },
+  {
     icon: <AssignmentOutlinedIcon />,
     title: "Projects",
     items: [],
