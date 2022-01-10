@@ -5,13 +5,15 @@ import { countries, states, cities } from "../../utils/DropDownItems";
 import { useFormContext, Controller } from "react-hook-form";
 
 const StepTwo = () => {
-  const { control } = useFormContext();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
   return (
     <Box className={styles.box}>
       <Controller
         control={control}
         name="address1"
-        // rules={{ required: true }}
         render={({ field }) => (
           <TextField
             id="outlined-basic"
@@ -25,6 +27,9 @@ const StepTwo = () => {
       <Controller
         control={control}
         name="country"
+        rules={{
+          required: "Country is required.",
+        }}
         render={({ field: { onChange, value } }) => (
           <Autocomplete
             sx={{ width: 300 }}
@@ -35,7 +40,12 @@ const StepTwo = () => {
             isOptionEqualToValue={(option, value) => option.id === value.id}
             options={countries}
             renderInput={(params) => (
-              <TextField {...params} label="Choose a country" />
+              <TextField
+                {...params}
+                label="Choose a country"
+                error={Boolean(errors?.country)}
+                helperText={errors.country?.message}
+              />
             )}
           />
         )}

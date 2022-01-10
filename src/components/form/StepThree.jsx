@@ -25,16 +25,17 @@ const StepThree = () => {
             options={chip}
             getOptionLabel={(option) => (option ? option.label : "")}
             renderInput={(params) => (
-              <TextField {...params} label="Chip" placeholder="Favorites" />
+              <TextField
+                {...params}
+                label="Chip"
+                placeholder="Favorites"
+                error={Boolean(errors?.chip)}
+                helperText={errors.chip ? "Put Atleast Three Values" : null}
+              />
             )}
           />
         )}
       />
-      {errors.chip ? (
-        <p style={{ color: "red" }}>
-          {errors.chip.type === "validate" ? "Put Atleast Three Values" : null}
-        </p>
-      ) : null}
     </Box>
   );
 };
