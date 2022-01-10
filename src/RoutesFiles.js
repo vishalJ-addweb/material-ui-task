@@ -3,6 +3,8 @@ import { Box, Toolbar } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Datagrid from "./pages/Datagrid";
+import Profile from "./pages/Profile";
+import Forms from "./pages/Forms";
 // const drawerWidth = 240;
 
 const RoutesFiles = () => {
@@ -20,6 +22,8 @@ const RoutesFiles = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tables/dataGrid" element={<Datagrid />} />
+          <Route path="/pages/profile" element={<Profile />} />
+          <Route path="/forms" element={<Forms />} />
         </Routes>
       </Box>
     </>

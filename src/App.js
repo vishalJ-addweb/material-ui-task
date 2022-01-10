@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AppBarWithSearch from "./components/AppBarWithSearch";
-import Footer from "./components/Footer";
-import SideBar from "./components/SideBar";
+import AppBarWithSearch from "./components/common/AppBarWithSearch";
+import Footer from "./components/common/Footer";
+import SideBar from "./components/common/SideBar";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
