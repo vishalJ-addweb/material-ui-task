@@ -1,0 +1,57 @@
+.box{
+    width: 90%;
+    margin: 50px;
+}
+
+/* for profile card */
+.card_titile_box{
+    display: flex;
+    justify-content:space-between;
+}
+.card_img_box{
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+}
+.card_input_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card_input{
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 17px;
+    outline: none;
+    border: none;
+}
+.card_input_edit{
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 17px;
+}
+.card_button_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* for about card  */
+.link{
+    color: rgb(55, 111, 208);
+    margin-left: 7px;
+    text-decoration: none;
+}
+.about_card_input{
+    margin-left: 6px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+}
+.about_card_input_edit{
+    margin-left: 6px;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
