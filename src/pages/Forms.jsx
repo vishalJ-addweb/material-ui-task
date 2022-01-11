@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
 import styles from "../css/Profile.module.css";
-import DividerHorizontal from "../components/pages/DividerHorizontal";
+// import DividerHorizontal from "../components/pages/DividerHorizontal";
 import PageHeader from "../components/pages/PageHeader";
 import StepOne from "../components/form/StepOne";
 import StepTwo from "../components/form/StepTwo";
@@ -20,7 +20,7 @@ const Forms = () => {
       case 2:
         return <StepThree />;
       default:
-        return "Unknown Step";
+        return "Thank You";
     }
   };
   const handleNext = () => {
@@ -53,7 +53,7 @@ const Forms = () => {
     <Box className={styles.box}>
       <Box>
         <PageHeader title="Sign-Up Form" />
-        <DividerHorizontal />
+        {/* <DividerHorizontal /> */}
       </Box>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
