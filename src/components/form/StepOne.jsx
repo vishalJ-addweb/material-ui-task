@@ -50,7 +50,7 @@ const StepOne = (props) => {
         control={control}
         name="firstName"
         rules={{
-          required: "This field is required.",
+          required: "First Name is required.",
           minLength: { value: 4, message: "Minimum Length is 4" },
           maxLength: { value: 20, message: "Minimum Length is 20" },
         }}
@@ -80,12 +80,18 @@ const StepOne = (props) => {
       <Controller
         control={control}
         name="email"
+        rules={{
+          required: "Email is required.",
+        }}
         render={({ field }) => (
           <TextField
             id="outlined-basic"
             label="Email"
             variant="outlined"
             {...field}
+            error={Boolean(errors?.email)}
+            helperText={errors.email?.message}
+            type="email"
           />
         )}
       />
@@ -108,7 +114,7 @@ const StepOne = (props) => {
         <Controller
           control={control}
           name="gender"
-          // rules={{ required: "Gender is required field" }}
+          rules={{ required: "Gender is required field" }}
           render={({ field }) => (
             <RadioGroup {...field} name="radio-buttons-group">
               <FormControlLabel value="male" control={<Radio />} label="Male" />
@@ -126,7 +132,18 @@ const StepOne = (props) => {
           )}
         />
       </FormControl>
-      {/* {errors.gender?.message} */}
+      {errors.gender ? (
+        <p
+          style={{
+            color: "red",
+            margin: "0px",
+            padding: "0px 0px 0px 10px",
+            fontSize: "14px",
+          }}
+        >
+          {errors.gender.message}
+        </p>
+      ) : null}
 
       <FormControl>
         <FormLabel component="legend">Mode Of Transportation</FormLabel>
@@ -156,7 +173,14 @@ const StepOne = (props) => {
         />
       </FormControl>
       {errors.modes ? (
-        <p style={{ color: "red" }}>
+        <p
+          style={{
+            color: "red",
+            margin: "0px",
+            padding: "0px 0px 0px 10px",
+            fontSize: "14px",
+          }}
+        >
           {errors.modes.type === "validate" ? "Select Minimum Two Mode" : null}
         </p>
       ) : null}
