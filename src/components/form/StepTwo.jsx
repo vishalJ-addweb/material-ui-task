@@ -1,16 +1,44 @@
 import { Box, TextField, Autocomplete } from "@mui/material";
-import React from "react";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import TimePicker from "@mui/lab/TimePicker";
+import React, { useState } from "react";
 import styles from "../../css/Forms.module.css";
 import { countries, states, cities } from "../../utils/DropDownItems";
 import { useFormContext, Controller } from "react-hook-form";
 
 const StepTwo = () => {
+  const [value, setValue] = useState(new Date());
+  const year = value.getFullYear();
+  const month = value.getMonth();
+  const day = value.getDate();
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
   const {
     control,
     formState: { errors },
   } = useFormContext();
   return (
     <Box className={styles.box}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <DesktopDatePicker
+          label="Date desktop"
+          inputFormat="MM/dd/yyyy"
+          value={value}
+          maxDate={new Date(year + 1, month, day)}
+          minDate={new Date(year - 1, month, day)}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+        <TimePicker
+          label="Time"
+          value={value}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
       <Controller
         control={control}
         name="address1"
