@@ -25,6 +25,7 @@ const RoutesFiles = () => {
           <Route path="/pages/profile" element={<Profile />} />
           <Route path="/forms" element={<Forms />} />
         </Routes>
+        {/* <Toolbar /> */}
       </Box>
     </>
   );
