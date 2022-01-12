@@ -1,10 +1,9 @@
-import { Box, TextField, Autocomplete } from "@mui/material";
+import { Box, TextField, Autocomplete, Typography } from "@mui/material";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import TimePicker from "@mui/lab/TimePicker";
 import React, { useState } from "react";
-import styles from "../../css/Forms.module.css";
 import { countries, states, cities } from "../../utils/DropDownItems";
 import { useFormContext, Controller } from "react-hook-form";
 
@@ -21,7 +20,16 @@ const StepTwo = () => {
     formState: { errors },
   } = useFormContext();
   return (
-    <Box className={styles.box}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+      }}
+    >
+      <Typography sx={{ fontWeight: "bold", fontSize: "25px" }}>
+        Address
+      </Typography>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DesktopDatePicker
           label="Date desktop"
@@ -30,13 +38,17 @@ const StepTwo = () => {
           maxDate={new Date(year + 1, month, day)}
           minDate={new Date(year - 1, month, day)}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => (
+            <TextField sx={{ margin: "10px" }} {...params} />
+          )}
         />
         <TimePicker
           label="Time"
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => (
+            <TextField sx={{ margin: "10px" }} {...params} />
+          )}
         />
       </LocalizationProvider>
       <Controller
@@ -44,6 +56,7 @@ const StepTwo = () => {
         name="address1"
         render={({ field }) => (
           <TextField
+            sx={{ margin: "10px" }}
             id="outlined-basic"
             label="Address-Line-1"
             variant="outlined"
@@ -60,15 +73,16 @@ const StepTwo = () => {
         }}
         render={({ field: { onChange, value } }) => (
           <Autocomplete
-            sx={{ width: 300 }}
+            sx={{ width: 390 }}
             onChange={(event, item) => {
-              onChange(item.label);
+              onChange(item);
             }}
             value={value}
             isOptionEqualToValue={(option, value) => option.id === value.id}
             options={countries}
             renderInput={(params) => (
               <TextField
+                sx={{ margin: "10px" }}
                 {...params}
                 label="Choose a country"
                 error={Boolean(errors?.country)}
@@ -84,15 +98,19 @@ const StepTwo = () => {
         name="state"
         render={({ field: { onChange, value } }) => (
           <Autocomplete
-            sx={{ width: 300 }}
+            sx={{ width: 390 }}
             onChange={(event, item) => {
-              onChange(item.label);
+              onChange(item);
             }}
             value={value}
             isOptionEqualToValue={(option, value) => option.id === value.id}
             options={states}
             renderInput={(params) => (
-              <TextField {...params} label="Select State" />
+              <TextField
+                sx={{ margin: "10px" }}
+                {...params}
+                label="Select State"
+              />
             )}
           />
         )}
@@ -103,15 +121,19 @@ const StepTwo = () => {
         name="city"
         render={({ field: { onChange, value } }) => (
           <Autocomplete
-            sx={{ width: 300 }}
+            sx={{ width: 390 }}
             onChange={(event, item) => {
-              onChange(item.label);
+              onChange(item);
             }}
             value={value}
             isOptionEqualToValue={(option, value) => option.id === value.id}
             options={cities}
             renderInput={(params) => (
-              <TextField {...params} label="Select City" />
+              <TextField
+                sx={{ margin: "10px" }}
+                {...params}
+                label="Select City"
+              />
             )}
           />
         )}
