@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { Box, Button } from "@mui/material";
-import styles from "../css/Profile.module.css";
-// import DividerHorizontal from "../components/pages/DividerHorizontal";
+import profileStyles from "../css/Profile.module.css";
+import styles from "../css/Forms.module.css";
 import PageHeader from "../components/pages/PageHeader";
+import DividerHorizontal from "../components/pages/DividerHorizontal";
 import StepOne from "../components/form/StepOne";
 import StepTwo from "../components/form/StepTwo";
 import StepThree from "../components/form/StepThree";
 import { useForm, FormProvider } from "react-hook-form";
+import { chip } from "../utils/DropDownItems";
 
 const Forms = () => {
-  const [defaultChecked, setDefaultChecked] = useState([]);
+  const [defaultChecked, setDefaultChecked] = useState(["Car", "MotorBike"]);
+  const defaultChip = chip;
   const [activeStep, setActiveStep] = useState(0);
   const getStepContent = (step) => {
     switch (step) {
@@ -18,7 +21,7 @@ const Forms = () => {
       case 1:
         return <StepTwo />;
       case 2:
-        return <StepThree />;
+        return <StepThree defaultChip={defaultChip} />;
       default:
         return "Thank You";
     }
@@ -30,15 +33,16 @@ const Forms = () => {
     setActiveStep(activeStep - 1);
   };
   const onSubmit = (data) => {
+    setDefaultChecked([]);
     data.modes?.map((val) => setDefaultChecked((prev) => [...prev, val]));
     console.log(data);
     handleNext();
   };
   const methods = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
+      firstName: "John",
+      lastName: "Doe",
+      email: "addwebsolution@gmail.com",
       gender: "",
       age: "",
       modes: defaultChecked,
@@ -46,37 +50,56 @@ const Forms = () => {
       country: "",
       state: "",
       city: "",
-      chip: "",
+      chip: defaultChip,
     },
   });
   return (
-    <Box className={styles.box}>
+    <Box className={profileStyles.box}>
       <Box>
         <PageHeader title="Sign-Up Form" />
-        {/* <DividerHorizontal /> */}
+        <DividerHorizontal />
       </Box>
-      <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          {getStepContent(activeStep)}
-          {activeStep > 0 && activeStep <= 2 && (
-            <Button variant="contained" onClick={handlePrev}>
-              Prev
-            </Button>
-          )}
+      <Box className={styles.box}>
+        <FormProvider {...methods}>
+          <form
+            onSubmit={methods.handleSubmit(onSubmit)}
+            className={styles.form}
+          >
+            {getStepContent(activeStep)}
+            {activeStep > 0 && activeStep <= 2 && (
+              <Button
+                variant="contained"
+                onClick={handlePrev}
+                sx={{ margin: "5px" }}
+              >
+                Prev
+              </Button>
+            )}
 
-          {activeStep < 2 && (
-            <Button type="submit" variant="contained" color="primary">
-              Next
-            </Button>
-          )}
+            {activeStep < 2 && (
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                sx={{ margin: "5px" }}
+              >
+                Next
+              </Button>
+            )}
 
-          {activeStep === 2 && (
-            <Button type="submit" variant="contained" color="primary">
-              Finish
-            </Button>
-          )}
-        </form>
-      </FormProvider>
+            {activeStep === 2 && (
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                sx={{ margin: "5px" }}
+              >
+                Finish
+              </Button>
+            )}
+          </form>
+        </FormProvider>
+      </Box>
     </Box>
   );
 };
