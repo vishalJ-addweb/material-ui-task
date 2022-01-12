@@ -491,3 +491,21 @@ export const chip = [
   { label: "Water" },
   { label: "Soda" },
 ];
+export const checkBoxItems = [
+  {
+    id: 0,
+    name: "Car",
+  },
+  {
+    id: 1,
+    name: "MotorBike",
+  },
+  {
+    id: 2,
+    name: "Bicycle",
+  },
+  {
+    id: 3,
+    name: "Boat",
+  },
+];
