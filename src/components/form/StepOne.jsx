@@ -34,7 +34,6 @@ const StepOne = (props) => {
         Personal Details
       </Typography>
       <Box
-        // className={styles.box}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -64,7 +63,6 @@ const StepOne = (props) => {
                 id="outlined-basic"
                 label="First-Name"
                 variant="outlined"
-                // {...field}
                 value={field.value}
                 error={Boolean(errors?.firstName)}
                 helperText={errors.firstName?.message}
