@@ -14,8 +14,8 @@ const RoutesFiles = () => {
         sx={{
           // width: `calc(100vw - ${drawerWidth}px)`,
           width: "100vw",
-          backgroundColor: "rgb(247, 249, 252)",
-          height: "100vh",
+          // backgroundColor: "rgb(247, 249, 252)",
+          // height: "100vh",
         }}
       >
         <Toolbar />
