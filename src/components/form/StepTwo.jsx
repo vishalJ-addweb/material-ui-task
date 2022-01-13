@@ -12,6 +12,7 @@ const StepTwo = () => {
   const year = value.getFullYear();
   const month = value.getMonth();
   const day = value.getDate();
+  const hour = value.getHours();
   const handleChange = (newValue) => {
     setValue(newValue);
   };
@@ -46,6 +47,8 @@ const StepTwo = () => {
           label="Time"
           value={value}
           onChange={handleChange}
+          minTime={new Date(year, month, day, hour - 2)}
+          maxTime={new Date(year, month, day, hour + 2)}
           renderInput={(params) => (
             <TextField sx={{ margin: "10px" }} {...params} />
           )}
