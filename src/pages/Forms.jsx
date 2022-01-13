@@ -39,6 +39,7 @@ const Forms = () => {
     handleNext();
   };
   const methods = useForm({
+    mode: "all",
     defaultValues: {
       firstName: "John",
       lastName: "Doe",
