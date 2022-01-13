@@ -32,7 +32,6 @@ const StepThree = (props) => {
             sx={{ width: 390 }}
             onChange={(event, data) => onChange(data)}
             options={chip}
-            // defaultValue={[chip[0], chip[1], chip[2]]}
             defaultValue={[
               props.defaultChip[0],
               props.defaultChip[1],
