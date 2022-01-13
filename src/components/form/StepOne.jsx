@@ -105,7 +105,6 @@ const StepOne = (props) => {
                 {...field}
                 error={Boolean(errors?.email)}
                 helperText={errors.email?.message}
-                type="email"
               />
             )}
           />
