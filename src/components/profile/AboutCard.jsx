@@ -5,15 +5,14 @@ import styles from "../../css/Profile.module.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
-import { Link } from "react-router-dom";
 
 const AboutCard = () => {
   const [doubleClickEditLives, setDoubleClickEditLives] = useState(false);
   const [doubleClickEditWorks, setDoubleClickEditWorks] = useState(false);
   const [doubleClickEditAddress, setDoubleClickEditAddress] = useState(false);
-  const [lives, setLives] = useState("Lives in");
-  const [works, setWorks] = useState("Works at");
-  const [address, setAddress] = useState("Lives in");
+  const [lives, setLives] = useState("San Fransisco, SA");
+  const [works, setWorks] = useState("Material UI");
+  const [address, setAddress] = useState("Boston");
   return (
     <ClickAwayListener
       onClickAway={(e) => {
@@ -30,6 +29,7 @@ const AboutCard = () => {
         </Box>
         <Box sx={{ ml: 2, display: "flex" }}>
           <HomeOutlinedIcon />
+          <Typography sx={{ ml: 1 }}>Lives in</Typography>
           <input
             type="text"
             value={lives}
@@ -42,7 +42,7 @@ const AboutCard = () => {
               setDoubleClickEditLives(false);
               e.target.readOnly = true;
             }}
-            style={{ width: "65px" }}
+            style={{ width: "155px" }}
             className={`${
               doubleClickEditLives
                 ? styles.about_card_input_edit
@@ -50,12 +50,10 @@ const AboutCard = () => {
             }`}
             readOnly
           />
-          <Link className={styles.link} to="/">
-            San Fransisco, SA
-          </Link>
         </Box>
         <Box sx={{ ml: 2, display: "flex" }}>
           <WorkOutlineOutlinedIcon />
+          <Typography sx={{ ml: 1 }}>Works at</Typography>
           <input
             type="text"
             value={works}
@@ -68,7 +66,7 @@ const AboutCard = () => {
               setDoubleClickEditWorks(false);
               e.target.readOnly = true;
             }}
-            style={{ width: "75px" }}
+            style={{ width: "130px" }}
             className={`${
               doubleClickEditWorks
                 ? styles.about_card_input_edit
@@ -76,12 +74,10 @@ const AboutCard = () => {
             }`}
             readOnly
           />
-          <Link className={styles.link} to="/">
-            Material UI
-          </Link>
         </Box>
         <Box sx={{ ml: 2, display: "flex" }}>
           <FmdGoodOutlinedIcon />
+          <Typography sx={{ ml: 1 }}>Lives in</Typography>
           <input
             type="text"
             value={address}
@@ -94,7 +90,7 @@ const AboutCard = () => {
               setDoubleClickEditAddress(false);
               e.target.readOnly = true;
             }}
-            style={{ width: "65px" }}
+            style={{ width: "130px" }}
             className={`${
               doubleClickEditAddress
                 ? styles.about_card_input_edit
@@ -102,9 +98,6 @@ const AboutCard = () => {
             }`}
             readOnly
           />
-          <Link className={styles.link} to="/">
-            Boston
-          </Link>
         </Box>
       </Card>
     </ClickAwayListener>
