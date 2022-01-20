@@ -46,14 +46,20 @@ export const pagesItems = [
   },
   {
     icon: <AssignmentOutlinedIcon />,
-    title: "Projects",
+    title: "List",
+    to: "/list",
     items: [],
   },
-  {
-    icon: <ShoppingCartOutlinedIcon />,
-    title: "Orders",
-    items: [],
-  },
+  // {
+  //   icon: <AssignmentOutlinedIcon />,
+  //   title: "Projects",
+  //   items: [],
+  // },
+  // {
+  //   icon: <ShoppingCartOutlinedIcon />,
+  //   title: "Orders",
+  //   items: [],
+  // },
   {
     icon: <ShoppingCartOutlinedIcon />,
     title: "Invoices",
