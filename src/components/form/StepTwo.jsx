@@ -8,11 +8,12 @@ import { countries, states, cities } from "../../utils/DropDownItems";
 import { useFormContext, Controller } from "react-hook-form";
 
 const StepTwo = () => {
+  const newDate = new Date();
   const [value, setValue] = useState(new Date());
-  const year = value.getFullYear();
-  const month = value.getMonth();
-  const day = value.getDate();
-  const hour = value.getHours();
+  const year = newDate.getFullYear();
+  const month = newDate.getMonth();
+  const day = newDate.getDate();
+  const hour = newDate.getHours();
   const handleChange = (newValue) => {
     setValue(newValue);
   };
