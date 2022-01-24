@@ -8,7 +8,15 @@ import Typography from "@mui/material/Typography";
 
 const ListCard = ({ items }) => {
   return (
-    <Card sx={{ maxWidth: 355, minWidth: 355, maxHeight: 300, minHeight: 300 }}>
+    <Card
+      sx={{
+        maxWidth: 355,
+        minWidth: 355,
+        maxHeight: 300,
+        minHeight: 300,
+        backgroundColor: "#efefef",
+      }}
+    >
       <CardMedia
         component="img"
         height="140"
@@ -19,6 +27,7 @@ const ListCard = ({ items }) => {
         <Typography gutterBottom variant="h5" component="div">
           {items.title.charAt(0).toUpperCase() +
             items.title.substr(1).toLowerCase()}
+          {/* {items.title} */}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {items.authors}
