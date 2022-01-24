@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Datagrid from "./pages/Datagrid";
 import Profile from "./pages/Profile";
 import Forms from "./pages/Forms";
-import List from "./pages/List";
+import UsersList from "./pages/UsersList";
 // const drawerWidth = 240;
 
 const RoutesFiles = () => {
@@ -25,7 +25,7 @@ const RoutesFiles = () => {
           <Route path="/tables/dataGrid" element={<Datagrid />} />
           <Route path="/pages/profile" element={<Profile />} />
           <Route path="/forms" element={<Forms />} />
-          <Route path="/list" element={<List />} />
+          <Route path="/list" element={<UsersList />} />
         </Routes>
         {/* <Toolbar /> */}
       </Box>
